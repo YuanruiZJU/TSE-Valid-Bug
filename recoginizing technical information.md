@@ -6,7 +6,7 @@ In our paper, we propose six features to characterize the existence of various t
 
 Here, for each type of technical information, we propose the corresponding regular expressions and words. Notice that the regular expressions are in Python format using **re** package.
 
-## Stack Trace
+## Stack Traces
 
 1. We recognize three types of stack traces in textual format -- namely Java stack traces, Gdb stack traces and JavaScript stack traces. Regular expressions for recognizing these types of stack traces are as follows:
 
@@ -37,7 +37,16 @@ We recognize steps to reproduce using the following regular expressions:
 * r'repro[\w]*[\s]+step',
 * r'to reproduce'
 
-### Patch
+### Code Samples
+
+We recognize code samples using the following regular expressions:
+* r'^[\s]*(public|private|protected).*class[\s]+[\w]+[\s]',
+* r'^[\s]*(public|private|protected).*\(.*\)[\n]?',
+* r'^[\s]*(if|for|while)[\s]*\(.*\)',
+* r'\{(.*\n)*.*\}'
+* r'import[\s]+.*;'
+
+### Patches
 
 1. We recognize patches in textual format using the following regular expression:
 * r'[-]{3}[\s].*\n[\+]{3}[\s].*\n[@]{2}'
