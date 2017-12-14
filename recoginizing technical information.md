@@ -13,45 +13,45 @@ Here, for each type of technical information, we propose the corresponding regul
 1. We recognize three types of stack traces in textual format -- namely Java stack traces, Gdb stack traces and JavaScript stack traces. Regular expressions for recognizing these types of stack traces are as follows:
 
 **Java Stack Traces:** 
-* r'^\!SUBENTRY .*'
-* r'^\!ENTRY .*'
-* r'^\!MESSAGE .*'
-* r'^\!STACK .*'
-* r'^[\s]*at[\s]+.*[\n]?\([\w]+\.java(:[\d]+)?\)'
-* r'^[\s]*([\w]+\.)+[\w]+(Exception|Error)(:[\s]+(.*\n)*.*)?' 
+* `r'^\!SUBENTRY .*'`
+* `r'^\!ENTRY .*'`
+* `r'^\!MESSAGE .*'`
+* `r'^\!STACK .*'`
+* `r'^[\s]*at[\s]+.*[\n]?\([\w]+\.java(:[\d]+)?\)'`
+* `r'^[\s]*([\w]+\.)+[\w]+(Exception|Error)(:[\s]+(.*\n)*.*)?'`
 
 **Gdb Stack Traces:**
-* r'#[\d]+[\s]+0x[0-9a-f]{16}[\s]+in[\s]+[\S]+'
-* r'Thread[\s]+[\d]+[\s]+\(process[\s]+[\d]+\):\n#[\d]+'
+* `r'#[\d]+[\s]+0x[0-9a-f]{16}[\s]+in[\s]+[\S]+'`
+* `r'Thread[\s]+[\d]+[\s]+\(process[\s]+[\d]+\):\n#[\d]+'`
 
 **JavaScript Stack Trace:**
-* r'^[\s]*[\S]+@[\S]+\.js:[\d]+'
+* `r'^[\s]*[\S]+@[\S]+\.js:[\d]+'`
 
 2. We identify whether an attachment contains stack traces by directly checking whether the description of the attachment contains the word `"trace"`.
 
 ### Steps to Reproduce
 
 We recognize steps to reproduce using the following regular expressions:
-* r'step[s]? to reproduce',
-* r'reproduce step[s]?',
-* r'step[s]? for reproduction',
-* r're-creation proc',
-* r'repro[\w]*[\s]+step',
-* r'to reproduce'
+* `r'step[s]? to reproduce'`
+* `r'reproduce step[s]?'`
+* `r'step[s]? for reproduction'`
+* `r're-creation proc'`
+* `r'repro[\w]*[\s]+step'`
+* `r'to reproduce'`
 
 ### Code Samples
 
 We recognize code samples using the following regular expressions:
-* r'^[\s]*(public|private|protected).*class[\s]+[\w]+[\s]',
-* r'^[\s]*(public|private|protected).*\(.*\)[\n]?',
-* r'^[\s]*(if|for|while)[\s]*\(.*\)',
-* r'\{(.*\n)*.*\}'
-* r'import[\s]+.*;'
+* `r'^[\s]*(public|private|protected).*class[\s]+[\w]+[\s]'`
+* `r'^[\s]*(public|private|protected).*\(.*\)[\n]?'`
+* `r'^[\s]*(if|for|while)[\s]*\(.*\)'`
+* `r'\{(.*\n)*.*\}'`
+* `r'import[\s]+.*;'`
 
 ### Patches
 
 1. We recognize patches in textual format using the following regular expression:
-* r'[-]{3}[\s].*\n[\+]{3}[\s].*\n[@]{2}'
+* `r'[-]{3}[\s].*\n[\+]{3}[\s].*\n[@]{2}'`
 2. We identify whether an attachment contains patches by directly checking whether the description of the attachment contains the word `"patch"` or `"fix"`.
 
 ### 
