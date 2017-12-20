@@ -1,4 +1,4 @@
-# Regular Expressions and Words Used for technical information recognization
+# Regular Expressions, Phrases and Words Used for technical information recognization
 
 In our paper, we propose six features to characterize the existence of various technical information in the description of bug reports. These features include `has_stack`, `has_step`, `has_code`, `has_patch`, `has_testcase` and `has_screenshot`. They characterize whether a bug report contains **stack traces**, **steps to reproduce**, **code samples**, **patches**, **test cases** and **screenshot**, respectively. Reporters can directly report **stack traces**, **steps to reproduce**, **code samples**, **patches** and **test cases** in the textual description of bug reports. Reporters can also attach files in the description of bug reports. Attachments of bug reports contain **stack traces**, **patches**, **test cases** and **screenshots**. We need to recognize these technical information in the form of both *text and attachment*.
 
