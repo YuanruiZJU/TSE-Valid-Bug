@@ -69,7 +69,7 @@ We recognize code samples using the following regular expressions:
 
 We ignore case when matching these words.
 
-### Screen Shots
+### Screenshots
 We identify whether an attachment contains screenshots by checking whether the description of the attachment contains the following words or phrases:
 
 ```'window', 'view', 'picture', 'screenshot', 'visible', 'image', 'png', 'bmp', 'jpg', 'jpeg', 'where to', 'screen shot','yellow', 'rectangle'```
