@@ -72,7 +72,8 @@ r'import[\s]+.*;'
      r'testcase[s]?[\s]+\(.*\):'
      r'^test case[s]?[\s]*\n'
      r'^testcase[s]?[\s]*\n'
-  ```
+     ```
+
 2. We identify whether an attachment contains test cases by checking whether the description of the attachment contains the following words:
      ```'test case', 'testcase', 'added test', 'test program', 'testing case'```
 
