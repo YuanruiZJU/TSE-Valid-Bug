@@ -10,27 +10,27 @@ Here, for each type of technical information, we propose the corresponding regul
 
 ## Stack Traces
 
-1. We recognize three types of stack traces in textual format -- namely Java stack traces, GDB stack traces and JavaScript stack traces. Regular expressions for recognizing these types of stack traces are as follows:
- - Java Stack Traces: 
- ```
- r'^\!SUBENTRY .*'
- r'^\!ENTRY .*'
- r'^\!MESSAGE .*'
- r'^\!STACK .*'
- r'^[\s]*at[\s]+.*[\n]?\([\w]+\.java(:[\d]+)?\)'
- r'^[\s]*([\w]+\.)+[\w]+(Exception|Error)(:[\s]+(.*\n)*.*)?'
- ```
- - GDB Stack Traces:
- ```
- r'#[\d]+[\s]+0x[0-9a-f]{16}[\s]+in[\s]+[\S]+'
- r'Thread[\s]+[\d]+[\s]+\(process[\s]+[\d]+\):\n#[\d]+'
- ```
+ 1. We recognize three types of stack traces in textual format -- namely Java stack traces, GDB stack traces and JavaScript stack traces. Regular expressions for recognizing these types of stack traces are as follows:
+  - Java Stack Traces: 
+  ```
+  r'^\!SUBENTRY .*'
+  r'^\!ENTRY .*'
+  r'^\!MESSAGE .*'
+  r'^\!STACK .*'
+  r'^[\s]*at[\s]+.*[\n]?\([\w]+\.java(:[\d]+)?\)'
+  r'^[\s]*([\w]+\.)+[\w]+(Exception|Error)(:[\s]+(.*\n)*.*)?'
+  ```
+  - GDB Stack Traces:
+  ```
+  r'#[\d]+[\s]+0x[0-9a-f]{16}[\s]+in[\s]+[\S]+'
+  r'Thread[\s]+[\d]+[\s]+\(process[\s]+[\d]+\):\n#[\d]+'
+  ```
 
- - JavaScript Stack Traces:
+  - JavaScript Stack Traces:
+  ```
+  r'^[\s]*[\S]+@[\S]+\.js:[\d]+'
  ```
- r'^[\s]*[\S]+@[\S]+\.js:[\d]+'
- ```
-2. We identify whether an attachment contains stack traces by directly checking whether the description of the attachment contains the word `"trace"`.
+ 2. We identify whether an attachment contains stack traces by directly checking whether the description of the attachment contains the word `"trace"`.
 
 ## Steps to Reproduce
 
