@@ -1,12 +1,12 @@
 # Regular Expressions, Phrases and Words Used for technical information recognition
 
-In our paper, we propose six features to characterize the existence of technical information in the description of bug reports. These features include `has-stack`, `has-step`, `has-code`, `has-patch`, `has-testcase` and `has-screenshot`. They characterize whether a bug report contains **stack traces**, **steps to reproduce**, **code samples**, **patches**, **test cases** and **screenshot**, respectively. Reporters can directly report **stack traces**, **steps to reproduce**, **code samples**, **patches** and **test cases** in the textual description of bug reports. Reporters can also attach files in the description of bug reports. Attachments of bug reports contain **stack traces**, **patches**, **test cases** and **screenshots**. We need to recognize the technical information in the form of both *text and attachment*.
+In our paper, we propose six features to characterize the existence of technical information in the description of bug reports. These features include `has-stack`, `has-step`, `has-code`, `has-patch`, `has-testcase` and `has-screenshot`. They characterize whether a bug report contains **stack traces**, **steps to reproduce**, **code samples**, **patches**, **test cases** and **screenshot**, respectively. Reporters can directly report **stack traces**, **steps to reproduce**, **code samples**, **patches** and **test cases** in the textual description of bug reports. Reporters can also attach files in the description of a bug report. Attachments of bug reports contain **stack traces**, **patches**, **test cases** and **screenshots**. We need to recognize the technical information in both the *text* and *attachment* of a bug report.
 
-**Recognizing Attachments and Extracting their Description.** In Bugzilla, each attachment has an ID number and it is corresponding to a paragraph in the description of a bug report. The paragraph consists of two lines. The first line of the paragraph is in the form of "Created attachment #(attachment_id)", which can be easily identified. The second line of the paragraph is the description of the attachment. We use the following regular expression to recognize the paragraphs corresponding to attachments:  
+**Recognizing Attachments and Extracting their Description.** In Bugzilla, each attachment has an ID number and corresponds to a paragraph in the description of a bug report. The paragraph consists of two lines. The first line of the paragraph is in the form of "Created attachment #(attachment_id)", which can be easily identified. The second line of the paragraph is the description of the attachment. We use the following regular expression to recognize the paragraph that correspond to attachments:  
 
 ```r'Created attachment [0-9]+'```
 
-Here, for each type of technical information, we propose the corresponding regular expressions and words. Notice that the regular expressions are in Python format using **re** package.
+Here, for each type of technical information, we propose the corresponding regular expressions and words. Notice that the regular expressions are in Python format using the **re** package. And we ignore case when matching in the description of a bug report.  
 
 ## Stack Traces
 
@@ -27,7 +27,7 @@ Here, for each type of technical information, we propose the corresponding regul
 **JavaScript Stack Trace:**
 * `r'^[\s]*[\S]+@[\S]+\.js:[\d]+'`
 
-2. We identify whether an attachment contains stack traces by directly checking whether the description of the attachment contains the word `"trace"`. We ignore case when matching the word in the description of bug report.
+2. We identify whether an attachment contains stack traces by directly checking whether the description of the attachment contains the word `"trace"`.
 
 ### Steps to Reproduce
 
@@ -52,7 +52,7 @@ We recognize code samples using the following regular expressions:
 
 1. We recognize patches in textual format using the following regular expression:
 * `r'[-]{3}[\s].*\n[\+]{3}[\s].*\n[@]{2}'`
-2. We identify whether an attachment contains patches by directly checking whether the description of the attachment contains the word `"patch"` or `"fix"`. We ignore case when matching these words.
+2. We identify whether an attachment contains patches by directly checking whether the description of the attachment contains the word `"patch"` or `"fix"`.
 
 ### Test Cases
 
@@ -67,11 +67,7 @@ We recognize code samples using the following regular expressions:
 
 ```'test case', 'testcase', 'added test', 'test program', 'testing case'```
 
-We ignore case when matching these words.
-
 ### Screenshots
 We identify whether an attachment contains screenshots by checking whether the description of the attachment contains the following words or phrases:
 
 ```'window', 'view', 'picture', 'screenshot', 'visible', 'image', 'png', 'bmp', 'jpg', 'jpeg', 'where to', 'screen shot','yellow', 'rectangle'```
-
-We ignore case when matching these words.
