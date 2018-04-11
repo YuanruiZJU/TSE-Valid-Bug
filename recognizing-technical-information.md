@@ -12,6 +12,7 @@ Here, for each type of technical information, we propose the corresponding regul
 
 1. We recognize three types of stack traces in textual format -- namely Java stack traces, GDB stack traces and JavaScript stack traces. Regular expressions for recognizing these types of stack traces are as follows:
 
+```
 **Java Stack Traces:** 
 * `r'^\!SUBENTRY .*'`
 * `r'^\!ENTRY .*'`
@@ -26,6 +27,7 @@ Here, for each type of technical information, we propose the corresponding regul
 
 **JavaScript Stack Trace:**
 * `r'^[\s]*[\S]+@[\S]+\.js:[\d]+'`
+```
 
 2. We identify whether an attachment contains stack traces by directly checking whether the description of the attachment contains the word `"trace"`.
 
