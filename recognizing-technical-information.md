@@ -10,7 +10,7 @@ Here, for each type of technical information, we propose the corresponding regul
 
 ## Stack Traces
 
-We recognize three types of stack traces in textual format -- namely Java stack traces, GDB stack traces and JavaScript stack traces. Regular expressions for recognizing these types of stack traces are as follows:
+1. We recognize three types of stack traces in textual format -- namely Java stack traces, GDB stack traces and JavaScript stack traces. Regular expressions for recognizing these types of stack traces are as follows:
      - Java Stack Traces: 
      ```
      r'^\!SUBENTRY .*'
@@ -29,7 +29,7 @@ We recognize three types of stack traces in textual format -- namely Java stack 
      ```
      r'^[\s]*[\S]+@[\S]+\.js:[\d]+'
      ```
-We identify whether an attachment contains stack traces by directly checking whether the description of the attachment contains the word `"trace"`.
+2. We identify whether an attachment contains stack traces by directly checking whether the description of the attachment contains the word `"trace"`.
 
 ## Steps to Reproduce
 
@@ -56,26 +56,25 @@ r'import[\s]+.*;'
 
 ## Patches
 
-We recognize patches in textual format using the following regular expression:
+1. We recognize patches in textual format using the following regular expression:
    ```
    r'[-]{3}[\s].*\n[\+]{3}[\s].*\n[@]{2}'
    ```
-We identify whether an attachment contains patches by directly checking whether the description of the attachment contains the word `"patch"` or `"fix"`.
+2. We identify whether an attachment contains patches by directly checking whether the description of the attachment contains the word `"patch"` or `"fix"`.
 
 ## Test Cases
 
-We recognize test cases in textual format using the following regular expression:
+1. We recognize test cases in textual format using the following regular expression:
+     ```
+     r'test case[s]?:'
+     r'testcase[s]?:'
+     r'test case[s]?[\s]+\(.*\):'
+     r'testcase[s]?[\s]+\(.*\):'
+     r'^test case[s]?[\s]*\n'
+     r'^testcase[s]?[\s]*\n'
   ```
-  r'test case[s]?:'
-  r'testcase[s]?:'
-  r'test case[s]?[\s]+\(.*\):'
-  r'testcase[s]?[\s]+\(.*\):'
-  r'^test case[s]?[\s]*\n'
-  r'^testcase[s]?[\s]*\n'
-  ```
-We identify whether an attachment contains test cases by checking whether the description of the attachment contains the following words:
-
-```'test case', 'testcase', 'added test', 'test program', 'testing case'```
+2. We identify whether an attachment contains test cases by checking whether the description of the attachment contains the following words:
+     ```'test case', 'testcase', 'added test', 'test program', 'testing case'```
 
 ## Screenshots
 We identify whether an attachment contains screenshots by checking whether the description of the attachment contains the following words or phrases:
