@@ -28,7 +28,7 @@ We recognize three types of stack traces in textual format -- namely Java stack 
      - JavaScript Stack Traces:
      ```
      r'^[\s]*[\S]+@[\S]+\.js:[\d]+'
-    ```
+     ```
 We identify whether an attachment contains stack traces by directly checking whether the description of the attachment contains the word `"trace"`.
 
 ## Steps to Reproduce
