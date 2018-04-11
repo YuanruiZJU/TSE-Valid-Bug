@@ -12,8 +12,7 @@ Here, for each type of technical information, we propose the corresponding regul
 
 We recognize three types of stack traces in textual format -- namely Java stack traces, GDB stack traces and JavaScript stack traces. Regular expressions for recognizing these types of stack traces are as follows:
 ```
-Java Stack Traces: 
-
+\* Java Stack Traces: 
 r'^\!SUBENTRY .*'
 r'^\!ENTRY .*'
 r'^\!MESSAGE .*'
