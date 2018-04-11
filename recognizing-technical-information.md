@@ -26,7 +26,7 @@ r'^[\s]*([\w]+\.)+[\w]+(Exception|Error)(:[\s]+(.*\n)*.*)?'
 r'#[\d]+[\s]+0x[0-9a-f]{16}[\s]+in[\s]+[\S]+'
 r'Thread[\s]+[\d]+[\s]+\(process[\s]+[\d]+\):\n#[\d]+'
 ```
-**JavaScript Stack Trace:**
+**JavaScript Stack Traces:**
 ```
 r'^[\s]*[\S]+@[\S]+\.js:[\d]+'
 ```
