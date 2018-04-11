@@ -34,7 +34,7 @@ r'^[\s]*[\S]+@[\S]+\.js:[\d]+'
 
 2. We identify whether an attachment contains stack traces by directly checking whether the description of the attachment contains the word `"trace"`.
 
-### Steps to Reproduce
+## Steps to Reproduce
 
 We recognize steps to reproduce using the following regular expressions:
 ```
@@ -46,7 +46,7 @@ r'repro[\w]*[\s]+step'
 r'to reproduce'
 ```
 
-### Code Samples
+## Code Samples
 
 We recognize code samples using the following regular expressions:
 ```
@@ -57,7 +57,7 @@ r'\{(.*\n)*.*\}'
 r'import[\s]+.*;'
 ```
 
-### Patches
+## Patches
 
 1. We recognize patches in textual format using the following regular expression:
  ```
@@ -65,7 +65,7 @@ r'import[\s]+.*;'
  ```
 2. We identify whether an attachment contains patches by directly checking whether the description of the attachment contains the word `"patch"` or `"fix"`.
 
-### Test Cases
+## Test Cases
 
 1. We recognize test cases in textual format using the following regular expression:
 ```
@@ -80,7 +80,7 @@ r'^testcase[s]?[\s]*\n'
 
 ```'test case', 'testcase', 'added test', 'test program', 'testing case'```
 
-### Screenshots
+## Screenshots
 We identify whether an attachment contains screenshots by checking whether the description of the attachment contains the following words or phrases:
 
 ```'window', 'view', 'picture', 'screenshot', 'visible', 'image', 'png', 'bmp', 'jpg', 'jpeg', 'where to', 'screen shot','yellow', 'rectangle'```
