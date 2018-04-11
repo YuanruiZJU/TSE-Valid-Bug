@@ -56,25 +56,24 @@ r'import[\s]+.*;'
 
 ## Patches
 
-We recognize patches in textual format using the following regular expression:
- ```
- r'[-]{3}[\s].*\n[\+]{3}[\s].*\n[@]{2}'
- ```
-We identify whether an attachment contains patches by directly checking whether the description of the attachment contains the word `"patch"` or `"fix"`.
+1. We recognize patches in textual format using the following regular expression:
+   ```
+   r'[-]{3}[\s].*\n[\+]{3}[\s].*\n[@]{2}'
+   ```
+2. We identify whether an attachment contains patches by directly checking whether the description of the attachment contains the word `"patch"` or `"fix"`.
 
 ## Test Cases
 
-We recognize test cases in textual format using the following regular expression:
-```
-r'test case[s]?:'
-r'testcase[s]?:'
-r'test case[s]?[\s]+\(.*\):'
-r'testcase[s]?[\s]+\(.*\):'
-r'^test case[s]?[\s]*\n'
-r'^testcase[s]?[\s]*\n'
-```
-
-We identify whether an attachment contains test cases by checking whether the description of the attachment contains the following words:
+1. We recognize test cases in textual format using the following regular expression:
+  ```
+  r'test case[s]?:'
+  r'testcase[s]?:'
+  r'test case[s]?[\s]+\(.*\):'
+  r'testcase[s]?[\s]+\(.*\):'
+  r'^test case[s]?[\s]*\n'
+  r'^testcase[s]?[\s]*\n'
+  ```
+2. We identify whether an attachment contains test cases by checking whether the description of the attachment contains the following words:
 
 ```'test case', 'testcase', 'added test', 'test program', 'testing case'```
 
